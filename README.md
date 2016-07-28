@@ -8,8 +8,10 @@ A JavaScript class that helps in the user interface dealing with images and diff
 Download and include `ImagesHelper.js`
 
 ##Functions:
-- `ImagesHelper.AdjustImages(imgParentSelector, imgSelector)` Adjusts the images to fill it's parent regarldess the ratio .. put in
+- `ImagesHelper.AdjustImages(imgParentSelector, imgSelector)` Adjusts the images to fill it's parent regarldess the ratio.
+
 ####EX:
+
 ```javascript
 $(window).load(function () {
     ImagesHelper.AdjustImages(".img-album-holder",".album-img");
