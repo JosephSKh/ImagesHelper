@@ -26,25 +26,25 @@ for the JavaScript code in this page.
 var ImagesHelper = {
 	//Adjusts Images to fill it's parent container
 	AdjustImages: function (imgParentSelector, imgSelector){
-	    $(imgParentSelector).each(function () {
-	        if ($(this).find(imgSelector).height() >= $(this).find(imgSelector).width()) {
-	            $(this).find(imgSelector).css("height", "auto");
-	            $(this).find(imgSelector).css("width", "100%");
-	        } else {
-	            $(this).find(imgSelector).css("height", "100%");
-	            $(this).find(imgSelector).css("width", "auto");
-	        }
-	    }).promise().done(function () {
-	        $(imgParentSelector).each(function () {
-	            if ($(this).height() > $(this).find(imgSelector).height()) {
-	                $(this).find(imgSelector).css("height", "100%");
-	                $(this).find(imgSelector).css("width", "auto");
-	            } else if ($(this).width() > $(this).find(imgSelector).width()) {
-	                $(this).find(imgSelector).css("height", "auto");
-	                $(this).find(imgSelector).css("width", "100%");
-	            }
-	        });
-	    });
-	},
+		    $(imgParentSelector).each(function () {
+		        if (($(this).find(imgSelector).height() / $(this).find(imgSelector).width()) <= ($(this).height() / $(this).width())) {
+		            $(this).find(imgSelector).css("height", "auto");
+		            $(this).find(imgSelector).css("width", "100%");
+		        } else {
+		            $(this).find(imgSelector).css("height", "100%");
+		            $(this).find(imgSelector).css("width", "auto");
+		        }
+		    }).promise().done(function () {
+		        $(imgParentSelector).each(function () {
+		            if (($(this).find(imgSelector).height() / $(this).find(imgSelector).width()) <= ($(this).height() / $(this).width())) {
+		                $(this).find(imgSelector).css("height", "100%");
+		                $(this).find(imgSelector).css("width", "auto");
+		            } else{
+		                $(this).find(imgSelector).css("height", "auto");
+		                $(this).find(imgSelector).css("width", "100%");
+		            }
+		        });
+		    });
+		},
 	//
 };
